@@ -12,7 +12,7 @@ config();
 const app = express();
 
 //middlewares
-app.use(cors({credentials: true }));
+app.use(cors({origin: 'https://nex-gen-chat-bot-ma92.vercel.app', credentials: true }));
 // app.use(cors({ origin: "https://nextgen-chatbot.netlify.app", credentials: true }));
 // app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 // app.options('*', cors({ credentials: true, optionsSuccessStatus: 204 }));
@@ -22,9 +22,9 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 //if we make api call to this backend then will seeing log message as well 
 //remove it in production
-app.use(morgan("dev"))
+// app.use(morgan("dev"))
 
-
+app.get('/', (req,res)=>{res.send('connection created'}))
 
 
 //when we make request on api and this will be handled by appRouter
