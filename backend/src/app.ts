@@ -12,7 +12,7 @@ config();
 const app = express();
 
 //middlewares
-app.use(cors({ origin: ['https://nextgen-chatbot.netlify.app', 'http://localhost:5173'], credentials: true }));
+app.use(cors({ origin: ['https://nex-gen-chat-bot-ma92.vercel.app', 'http://localhost:5173'], credentials: true }));
 // app.use(cors({ origin: "https://nextgen-chatbot.netlify.app", credentials: true }));
 // app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.options('*', cors({ credentials: true, optionsSuccessStatus: 204 }));
