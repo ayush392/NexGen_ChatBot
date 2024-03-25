@@ -24,8 +24,18 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 //remove it in production
 // app.use(morgan("dev"))
 
-app.get('/', (req,res)=>{res.send('connection created'}))
-
+app.get("/", (req, res, next) => {
+  try {
+    res.status(200).json({
+      message: "OK",
+      description: "Server is running.",
+    });
+  } catch (err) {
+    next(err);
+  } finally {
+    console.log("Request to / endpoint");
+  }
+});
 
 //when we make request on api and this will be handled by appRouter
 app.use("/api/v1",appRouter);
